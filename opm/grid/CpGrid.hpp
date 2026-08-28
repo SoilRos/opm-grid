@@ -1234,16 +1234,16 @@ namespace Dune
         double cellCenterDepth(int cell_index) const;
 
 
-        const Vector faceCenterEcl(int cell_index, int face, const Dune::cpgrid::Intersection& intersection) const;
+        Vector faceCenterEcl(int cell_index, int face, const Dune::cpgrid::Intersection& intersection) const;
 
-        const Vector faceAreaNormalEcl(int face) const;
+        Vector faceAreaNormalEcl(int face) const;
 
 
         // Geometry
         /// \brief Get the Position of a vertex.
         /// \param vertex The index identifying the vertex.
         /// \return The coordinates of the vertex.
-        const Vector& vertexPosition(int vertex) const;
+        Vector vertexPosition(int vertex) const;
 
         /// \brief Get the area of a face.
         /// \param face The index identifying the face.
@@ -1251,12 +1251,12 @@ namespace Dune
 
         /// \brief Get the coordinates of the center of a face.
         /// \param face The index identifying the face.
-        const Vector& faceCentroid(int face) const;
+        Vector faceCentroid(int face) const;
 
         /// \brief Get the unit normal of a face.
         /// \param face The index identifying the face.
         /// \see faceCell
-        const Vector& faceNormal(int face) const;
+        Vector faceNormal(int face) const;
 
         /// \brief Get the volume of the cell.
         /// \param cell The index identifying the cell.
@@ -1264,7 +1264,7 @@ namespace Dune
 
         /// \brief Get the coordinates of the center of a cell.
         /// \param cell The index identifying the face.
-        const Vector& cellCentroid(int cell) const;
+        Vector cellCentroid(int cell) const;
 
         /// \brief An iterator over the centroids of the geometry of the entities.
         /// \tparam codim The co-dimension of the entities.

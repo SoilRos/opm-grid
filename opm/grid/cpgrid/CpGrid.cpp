@@ -1434,7 +1434,7 @@ double CpGrid::cellCenterDepth(int cell_index) const
     return zz/nv;
 }
 
-const Dune::FieldVector<double,3> CpGrid::faceCenterEcl(int cell_index, int face, const Dune::cpgrid::Intersection& intersection) const
+Dune::FieldVector<double,3> CpGrid::faceCenterEcl(int cell_index, int face, const Dune::cpgrid::Intersection& intersection) const
 {
     // This method is an alternative to the method faceCentroid(...).
     // The face center is computed as a raw average of cell corners.
@@ -1494,7 +1494,7 @@ const Dune::FieldVector<double,3> CpGrid::faceCenterEcl(int cell_index, int face
 
 }
 
-const Dune::FieldVector<double,3> CpGrid::faceAreaNormalEcl(int face) const
+Dune::FieldVector<double,3> CpGrid::faceAreaNormalEcl(int face) const
 {
     // same implementation as ResInsight
     const int nd = Dune::FieldVector<double,3>::dimension;
@@ -1563,7 +1563,7 @@ const Dune::FieldVector<double,3> CpGrid::faceAreaNormalEcl(int face) const
     }
 }
 
-const Dune::FieldVector<double,3>& CpGrid::vertexPosition(int vertex) const
+Dune::FieldVector<double,3> CpGrid::vertexPosition(int vertex) const
 {
     return current_data_->back()->geomVector<3>()[cpgrid::EntityRep<3>(vertex, true)].center();
 }
@@ -1573,12 +1573,12 @@ double CpGrid::faceArea(int face) const
     return current_data_->back()->geomVector<1>()[cpgrid::EntityRep<1>(face, true)].volume();
 }
 
-const Dune::FieldVector<double,3>& CpGrid::faceCentroid(int face) const
+Dune::FieldVector<double,3> CpGrid::faceCentroid(int face) const
 {
     return current_data_->back()->geomVector<1>()[cpgrid::EntityRep<1>(face, true)].center();
 }
 
-const Dune::FieldVector<double,3>& CpGrid::faceNormal(int face) const
+Dune::FieldVector<double,3> CpGrid::faceNormal(int face) const
 {
     return current_data_->back()->face_normals_.get(face);
 }
@@ -1588,7 +1588,7 @@ double CpGrid::cellVolume(int cell) const
     return current_data_->back()->geomVector<0>()[cpgrid::EntityRep<0>(cell, true)].volume();
 }
 
-const Dune::FieldVector<double,3>& CpGrid::cellCentroid(int cell) const
+Dune::FieldVector<double,3> CpGrid::cellCentroid(int cell) const
 {
     return current_data_->back()->geomVector<0>()[cpgrid::EntityRep<0>(cell, true)].center();
 }
